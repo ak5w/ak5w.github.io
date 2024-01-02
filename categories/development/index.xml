@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on Jane - A super concise theme for Hugo</title>
+    <link>https://ak5w.github.io/categories/development/</link>
+    <description>Recent content in Development on Jane - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 02 Jan 2024 23:17:40 +0800</lastBuildDate><atom:link href="https://ak5w.github.io/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>01 Golang 开发环境准备</title>
+      <link>https://ak5w.github.io/post/2024/01/02/01-golang-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
+      <pubDate>Tue, 02 Jan 2024 23:17:40 +0800</pubDate>
+      
+      <guid>https://ak5w.github.io/post/2024/01/02/01-golang-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</guid>
+      <description>golang 开发环境设置 有关go语言的介绍可以在 https://zh.wikipedia.org/zh-cn/Go 或官网查看。 1. golang 安装 最新版本可在 The Go Programming Language 或 Go 语言中文网 上下载 本文仅提供在Linux的安装方法，其他环</description>
+    </item>
+    
+  </channel>
+</rss>

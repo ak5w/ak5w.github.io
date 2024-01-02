@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://ak5w.github.io/sitemap.xml
