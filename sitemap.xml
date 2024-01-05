@@ -16,6 +16,13 @@
   </url>
   
   <url>
+    <loc>https://ak5w.github.io/</loc>
+    <lastmod>2024-01-02T23:17:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://ak5w.github.io/categories/</loc>
     <lastmod>2024-01-02T23:17:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -66,13 +73,6 @@
   
   <url>
     <loc>https://ak5w.github.io/categories/index/</loc>
-    <lastmod>2024-01-02T23:17:40+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://ak5w.github.io/</loc>
     <lastmod>2024-01-02T23:17:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
