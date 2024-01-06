@@ -6,7 +6,16 @@
     <description>Recent content in env on Blog - Ak5w</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 02 Jan 2024 23:17:40 +0800</lastBuildDate><atom:link href="https://ak5w.github.io/tags/env/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jan 2024 16:37:31 +0800</lastBuildDate><atom:link href="https://ak5w.github.io/tags/env/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>00 - Docker 安装</title>
+      <link>https://ak5w.github.io/post/2024/01/05/00-docker-%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Fri, 05 Jan 2024 16:37:31 +0800</pubDate>
+      
+      <guid>https://ak5w.github.io/post/2024/01/05/00-docker-%E5%AE%89%E8%A3%85/</guid>
+      <description>本篇为 《深入浅出Docker》该书学习笔记 0. 为什么学习 Docker 容器化应用已是目前的事实，至少需要学会使用该工具。 1. 容器概览 很好的一个例子是： 在某地</description>
+    </item>
+    
     <item>
       <title>01 Golang 开发环境准备</title>
       <link>https://ak5w.github.io/post/2024/01/02/01-golang-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>

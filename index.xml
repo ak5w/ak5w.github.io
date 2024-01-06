@@ -6,7 +6,7 @@
     <description>Recent content on Blog - Ak5w</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 02 Jan 2024 23:17:40 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jan 2024 16:37:31 +0800</lastBuildDate>
     
         <atom:link href="https://ak5w.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,117 @@
     </item>
     
     <item>
+      <title>00 - Docker 安装</title>
+      <link>https://ak5w.github.io/post/2024/01/05/00-docker-%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Fri, 05 Jan 2024 16:37:31 +0800</pubDate>
+      
+      <guid>https://ak5w.github.io/post/2024/01/05/00-docker-%E5%AE%89%E8%A3%85/</guid>
+      
+        <description>&lt;blockquote&gt;
+&lt;p&gt;本篇为 《深入浅出Docker》该书学习笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;0-为什么学习-docker&#34;&gt;0. 为什么学习 Docker&lt;/h2&gt;
+&lt;p&gt;容器化应用已是目前的事实，至少需要学会使用该工具。&lt;/p&gt;
+&lt;h2 id=&#34;1-容器概览&#34;&gt;1. 容器概览&lt;/h2&gt;
+&lt;p&gt;很好的一个例子是： 在某地从零开始搭建一座房子， 结果需要搬家，只好在另处又从零开始。
+容器的出现，让这一切变得“可复用”，一次搭好，随处可用，并且可靠。&lt;/p&gt;
+&lt;h3 id=&#34;虚拟机的不足&#34;&gt;虚拟机的不足&lt;/h3&gt;
+&lt;p&gt;VMware的虚拟机是在硬件层面上构建虚拟构建应用， 不足在于VMware本身需要依赖专用操作系统，且VMware 本身占用资源。
+因此，容器化技术便是为了解决虚拟机的不足而出现。容器的运行不会独占操作系统，还具有启动快和便于迁移等优势。&lt;/p&gt;
+&lt;h2 id=&#34;2-docker-介绍&#34;&gt;2. Docker 介绍&lt;/h2&gt;
+&lt;h2 id=&#34;3-docker-安装&#34;&gt;3. Docker 安装&lt;/h2&gt;
+&lt;h3 id=&#34;31-ubuntu-上使用-docker-仓库安装-ce-版本&#34;&gt;3.1 Ubuntu 上使用 Docker 仓库安装 ce 版本&lt;/h3&gt;
+&lt;p&gt;Ubuntu 官方的版本库中并不一定是 Docker 最新的安装包，为了保证是最新版，我们从 Docker 官方库来安装。
+首先，更新现有的软件包列表：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo apt update
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注意：如果无法更新，可能是你的软件源指向是国外的服务器，很可能已经被墙。所有首次更新请打开 VPN。&lt;/p&gt;
+&lt;p&gt;接下来，安装一些必备软件包，让 apt 通过 HTTPS 使用软件包。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt install apt-transport-https ca-certificates curl software-properties-common
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后将官方 Docker 版本库的 GPG 密钥添加到系统中：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行后显示&lt;/p&gt;
+&lt;p&gt;OK
+将 Docker 版本库添加到APT源：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo add-apt-repository &amp;#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行后显示：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Get:1 https://download.docker.com/linux/ubuntu focal InRelease [36.2 kB]                                
+Hit:2 http://cn.archive.ubuntu.com/ubuntu focal InRelease                                               
+Get:3 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages [3056 B]
+Hit:4 http://cn.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:5 http://cn.archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:6 http://cn.archive.ubuntu.com/ubuntu focal-security InRelease
+Fetched 39.2 kB in 2s (16.1 kB/s)
+Reading package lists... Done
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;接下来，我们用新添加的 Docker 软件包来进行升级更新。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt update
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;确保要从 Docker 版本库，而不是默认的 Ubuntu 版本库进行安装：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apt-cache policy docker-ce
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行后会看到这样的结果（ Docker 的版本号可能略有不同）&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;docker-ce:
+  Installed: (none)
+  Candidate: 5:20.10.13~3-0~ubuntu-focal
+  Version table:
+     5:20.10.13~3-0~ubuntu-focal 500
+        500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
+     5:20.10.12~3-0~ubuntu-focal 500
+        500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
+     5:20.10.11~3-0~ubuntu-focal 500
+        500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
+     5:20.10.10~3-0~ubuntu-focal 500
+        500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;请注意，到目前这一步docker-ce还未安装，但根据上一步中的列表，可以看到 docker-ce 来自 Docker 官方版本库。&lt;/p&gt;
+&lt;p&gt;最后，安装 Docker ：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt install docker-ce
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;现在 Docker 已经安装完毕。
+查看 docker 安装版本信息：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$docker --version
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我们启动守护程序。检查 Docker 是否正在运行：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo systemctl status docker
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行结果类似以下内容，说明该服务处于活动状态并且正在运行：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2020-07-08 02:55:20 UTC; 5min ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 4287 (dockerd)
+      Tasks: 8
+     Memory: 36.4M
+     CGroup: /system.slice/docker.service
+             └─4287 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果要使用 Docker 作为非 root 用户，则应考虑使用类似以下方式将用户添加到 docker 组：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo usermod -aG docker your-user
+$ cat /etc/group | grep docker
+docker❌999:your-user
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果当前登录用户就是要添加到Docker组中的用户的话，则需要重新登录，组权限设置才会生效。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://kalacloud.com/blog/how-to-install-and-use-docker-on-ubuntu/&#34;&gt;https://kalacloud.com/blog/how-to-install-and-use-docker-on-ubuntu/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;32-卸载-docker&#34;&gt;3.2 卸载 docker&lt;/h3&gt;
+&lt;p&gt;删除安装包：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get remove docker docker-engine docker-ce docker.io -y
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;删除镜像、容器、配置文件等内容：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo rm -rf /var/lib/docker
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;33-docker-升级&#34;&gt;3.3 Docker 升级&lt;/h3&gt;
+&lt;p&gt;（1）停止Docker守护程序。（2）移除旧版本Docker。（3）安装新版本Docker。（4）配置新版本的Docker为开机自启动。（5）确保容器重启成功。&lt;/p&gt;
+&lt;h3 id=&#34;34-docker-存储驱动的选择&#34;&gt;3.4 Docker 存储驱动的选择&lt;/h3&gt;
+&lt;p&gt;每个Docker容器都有一个本地存储空间，用于保存层叠的镜像（Image Layer）以及挂载的容器文件系统，默认情况下，容器的所有读写操作都发生在镜像层上或挂载的文件系统中
+本地存储是通过存储驱动（Storage Driver）进行管理，也被称为Graph Driver&lt;/p&gt;
+&lt;p&gt;在Linux上，Docker可选择的一些存储驱动包括AUFS（最原始也是最老的）、Overlay2（可能是未来的最佳选择）、Device Mapper、Btrfs和ZFS。
+在Linux上，读者可以通过修改/etc/docker/daemon.json文件来修改存储引擎配置，修改完成之后需要重启Docker才能够生效&lt;/p&gt;
+&lt;h2 id=&#34;4-纵观-docker&#34;&gt;4. 纵观 Docker&lt;/h2&gt;
+&lt;h3 id=&#34;41-运维视角&#34;&gt;4.1 运维视角&lt;/h3&gt;
+&lt;h4 id=&#34;镜像&#34;&gt;镜像：&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 查看镜像
+$ docker image ls
+
+# 拉取镜像
+$ docker image pull ubuntu:latest
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;容器&#34;&gt;容器&lt;/h4&gt;
+&lt;h3 id=&#34;42-开发视角&#34;&gt;4.2 开发视角&lt;/h3&gt;
+&lt;p&gt;会分析一份应用代码中的Dockerfile并将其容器化，最终以容器的方式运行&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>01 Golang 开发环境准备</title>
       <link>https://ak5w.github.io/post/2024/01/02/01-golang-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
       <pubDate>Tue, 02 Jan 2024 23:17:40 +0800</pubDate>
@@ -42,19 +153,19 @@
 本文仅提供在&lt;code&gt;Linux&lt;/code&gt;的安装方法，其他环境请自行查阅&lt;/p&gt;
 &lt;h4 id=&#34;11-linux上安装&#34;&gt;1.1 Linux上安装&lt;/h4&gt;
 &lt;p&gt;可通过如下命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ wget https://studygolang.com/dl/golang/go1.17.3.linux-amd64.tar.gz
-$ tar -zxvf go1.17.3.linux-amd64.tar.gz
-$ sudo go /usr/local
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;并在 ~/.profile 文件中添加如下环境变量&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;export GOROOT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/usr/local/go
-export GOPATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/home/xxx/go
-export GOBIN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$GOROOT/bin
-export GOPROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;https://goproxy.cn, direct
-export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$GOPATH/bin:$GOROOT/bin:$PATH
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后 通过 source ~/.profile 使配置生效。可通过 go version 检查安装&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;➜  ~ go version
-go version go1.17.3 linux/amd64
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可通过 go env 命令查看各项配置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://studygolang.com/dl/golang/go1.17.3.linux-amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tar -zxvf go1.17.3.linux-amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo go /usr/local
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;并在 ~/.profile 文件中添加如下环境变量&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export GOROOT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/usr/local/go
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export GOPATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/home/xxx/go
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export GOBIN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$GOROOT/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export GOPROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;https://goproxy.cn, direct
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$GOPATH/bin:$GOROOT/bin:$PATH
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后 通过 source ~/.profile 使配置生效。可通过 go version 检查安装&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜  ~ go version
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go version go1.17.3 linux/amd64
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可通过 go env 命令查看各项配置&lt;/p&gt;
 &lt;h4 id=&#34;12-gopath-配置&#34;&gt;1.2 GoPATH 配置&lt;/h4&gt;
 &lt;p&gt;自从Golang采用Module的方式管理项目后，GOPATH目录已经不是那么重要了，目前主要用来存放依赖的Module库，生成的可执行文件等。&lt;/p&gt;
 &lt;ul&gt;
@@ -70,22 +181,22 @@ go version go1.17.3 linux/amd64
 &lt;a href=&#34;https://www.liwenzhou.com/posts/Go/00_go_in_vscode/&#34;&gt;VS code 配置Go语言开发环境&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;3-hellogolang&#34;&gt;3. hello,golang&lt;/h3&gt;
 &lt;p&gt;按惯例，我们的 hello 程序按如下步骤建立：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;➜  ~ sudo mkdir go-demo
-➜  ~ cd go-demo 
-➜  ~ go mod init go-demo    &lt;span style=&#34;color:#75715e&#34;&gt;# 会生成 go.mod 文件&lt;/span&gt;
-➜  ~ touch main.go
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 main.go 中，写入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, golang world&amp;#34;&lt;/span&gt;)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行 go build main.go， 然后运行编译好的可执行文件:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;➜  ~ ./main 
-Hello, golang world
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;至此，我们的 hello 程序已运行成功，诸行代码详解如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜  ~ sudo mkdir go-demo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜  ~ cd go-demo 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜  ~ go mod init go-demo    &lt;span style=&#34;color:#75715e&#34;&gt;# 会生成 go.mod 文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜  ~ touch main.go
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 main.go 中，写入：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, golang world&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行 go build main.go， 然后运行编译好的可执行文件:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜  ~ ./main 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Hello, golang world
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;至此，我们的 hello 程序已运行成功，诸行代码详解如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;package main：声明了 main.go 所在的包，Go 语言中使用包来组织代码。一个文件夹即一个包，包内可以暴露类型或方法供其他包使用。&lt;/li&gt;
 &lt;li&gt;import “fmt”：fmt 是 Go 语言的一个标准库/包，用来处理标准输入输出。&lt;/li&gt;
@@ -96,62 +207,61 @@ Hello, golang world
 &lt;p&gt;在本节，介绍如何使用 &lt;code&gt;dlv&lt;/code&gt;进行 &lt;code&gt;go&lt;/code&gt;程序调试&lt;/p&gt;
 &lt;h4 id=&#34;41-dlv-的安装&#34;&gt;4.1 dlv 的安装&lt;/h4&gt;
 &lt;p&gt;在golang 项目目录下执行如下命令，即可将 dlv 安装至 &lt;code&gt;$GO_PATH&lt;/code&gt;所在目录&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;go get github.com/derekparker/delve/cmd/dlv
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用 &lt;code&gt;dlv -h&lt;/code&gt;获取帮助信息：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Delve is a source level debugger &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; Go programs.
-
-Delve enables you to interact with your program by controlling the execution of the process,
-evaluating variables, and providing information of thread / goroutine state, CPU register state and more.
-
-The goal of this tool is to provide a simple yet powerful interface &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; debugging Go programs.
-
-Pass flags to the program you are debugging using &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;--&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; example:
-
-&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;dlv exec ./hello -- server --config conf/config.toml&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;
-
-Usage:
-  dlv &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;command&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
-
-Available Commands:
-  attach      Attach to running process and begin debugging.
-  connect     Connect to a headless debug server with a terminal client.
-  core        Examine a core dump.
-  dap         Starts a headless TCP server communicating via Debug Adaptor Protocol &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;DAP&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.
-  debug       Compile and begin debugging main package in current directory, or the package specified.
-  exec        Execute a precompiled binary, and begin a debug session.
-  help        Help about any command
-  run         Deprecated command. Use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;debug&amp;#39;&lt;/span&gt; instead.
-  test        Compile test binary and begin debugging program.
-  trace       Compile and begin tracing program.
-  version     Prints version.
-
-Flags:
-      --accept-multiclient               Allows a headless server to accept multiple client connections via JSON-RPC or DAP.
-      --allow-non-terminal-interactive   Allows interactive sessions of Delve that don&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;t have a terminal as stdin, stdout and stderr
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --api-version int                  Selects JSON-RPC API version when headless. New clients should use v2. Can be reset via RPCServer.SetApiVersion. See Documentation/api/json-rpc/README.md. (default 1)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --backend string                   Backend selection (see &amp;#39;&lt;/span&gt;dlv help backend&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;). (default &amp;#34;default&amp;#34;)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --build-flags string               Build flags, to be passed to the compiler. For example: --build-flags=&amp;#34;-tags=integration -mod=vendor -cover -v&amp;#34;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --check-go-version                 Exits if the version of Go in use is not compatible (too old or too new) with the version of Delve. (default true)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --disable-aslr                     Disables address space randomization
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --headless                         Run debug server only, in headless mode. Server will accept both JSON-RPC or DAP client connections.
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  -h, --help                             help for dlv
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --init string                      Init file, executed by the terminal client.
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  -l, --listen string                    Debugging server listen address. (default &amp;#34;127.0.0.1:0&amp;#34;)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --log                              Enable debugging server logging.
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --log-dest string                  Writes logs to the specified file or file descriptor (see &amp;#39;&lt;/span&gt;dlv help log&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;).
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --log-output string                Comma separated list of components that should produce debug output (see &amp;#39;&lt;/span&gt;dlv help log&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --only-same-user                   Only connections from the same user that started this instance of Delve are allowed to connect. (default true)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  -r, --redirect stringArray             Specifies redirect rules for target process (see &amp;#39;&lt;/span&gt;dlv help redirect&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-      --wd string                        Working directory &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; running the program.
-
-Additional help topics:
-  dlv backend  Help about the --backend flag.
-  dlv log      Help about logging flags.
-  dlv redirect Help about file redirection.
-
-Use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dlv [command] --help&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; more information about a command.
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/realjimmy/p/13418508.html&#34;&gt;https://www.cnblogs.com/realjimmy/p/13418508.html&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get github.com/derekparker/delve/cmd/dlv
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用 &lt;code&gt;dlv -h&lt;/code&gt;获取帮助信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Delve is a source level debugger &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; Go programs.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Delve enables you to interact with your program by controlling the execution of the process,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;evaluating variables, and providing information of thread / goroutine state, CPU register state and more.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The goal of this tool is to provide a simple yet powerful interface &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; debugging Go programs.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Pass flags to the program you are debugging using &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;--&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; example:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;dlv exec ./hello -- server --config conf/config.toml&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  dlv &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;command&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Available Commands:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  attach      Attach to running process and begin debugging.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  connect     Connect to a headless debug server with a terminal client.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  core        Examine a core dump.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  dap         Starts a headless TCP server communicating via Debug Adaptor Protocol &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;DAP&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  debug       Compile and begin debugging main package in current directory, or the package specified.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  exec        Execute a precompiled binary, and begin a debug session.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  help        Help about any command
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  run         Deprecated command. Use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;debug&amp;#39;&lt;/span&gt; instead.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  test        Compile test binary and begin debugging program.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  trace       Compile and begin tracing program.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  version     Prints version.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Flags:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      --accept-multiclient               Allows a headless server to accept multiple client connections via JSON-RPC or DAP.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      --allow-non-terminal-interactive   Allows interactive sessions of Delve that don&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;t have a terminal as stdin, stdout and stderr
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --api-version int                  Selects JSON-RPC API version when headless. New clients should use v2. Can be reset via RPCServer.SetApiVersion. See Documentation/api/json-rpc/README.md. (default 1)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --backend string                   Backend selection (see &amp;#39;&lt;/span&gt;dlv help backend&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;). (default &amp;#34;default&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --build-flags string               Build flags, to be passed to the compiler. For example: --build-flags=&amp;#34;-tags=integration -mod=vendor -cover -v&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --check-go-version                 Exits if the version of Go in use is not compatible (too old or too new) with the version of Delve. (default true)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --disable-aslr                     Disables address space randomization
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --headless                         Run debug server only, in headless mode. Server will accept both JSON-RPC or DAP client connections.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  -h, --help                             help for dlv
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --init string                      Init file, executed by the terminal client.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  -l, --listen string                    Debugging server listen address. (default &amp;#34;127.0.0.1:0&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --log                              Enable debugging server logging.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --log-dest string                  Writes logs to the specified file or file descriptor (see &amp;#39;&lt;/span&gt;dlv help log&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;).
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --log-output string                Comma separated list of components that should produce debug output (see &amp;#39;&lt;/span&gt;dlv help log&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      --only-same-user                   Only connections from the same user that started this instance of Delve are allowed to connect. (default true)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  -r, --redirect stringArray             Specifies redirect rules for target process (see &amp;#39;&lt;/span&gt;dlv help redirect&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      --wd string                        Working directory &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; running the program.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Additional help topics:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  dlv backend  Help about the --backend flag.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  dlv log      Help about logging flags.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  dlv redirect Help about file redirection.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dlv [command] --help&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; more information about a command.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/realjimmy/p/13418508.html&#34;&gt;https://www.cnblogs.com/realjimmy/p/13418508.html&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;5-golang-文档查询&#34;&gt;5. golang 文档查询&lt;/h3&gt;
 </description>
       
