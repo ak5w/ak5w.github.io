@@ -7,7 +7,9 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>golang · Blog - Ak5w</title>
+    <title>
+          02 Slice - Blog - Ak5w
+        </title>
     
 
 <meta name="renderer" content="webkit" />
@@ -26,9 +28,9 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="ak5w" />
-  <meta name="description" content="Ak5w’s blog." />
-  <meta name="keywords" content="ak5w, blog" />
+<meta name="author" content="ak5w" /><meta name="description" content="setup golang env" />
+<meta name="keywords" content="golang, data structure" />
+
 
 
 
@@ -38,8 +40,8 @@
 <meta name="generator" content="Hugo 0.109.0" />
 
 
-<link rel="canonical" href="https://ak5w.github.io/categories/golang/" />
-<link href="/categories/golang/index.xml" rel="alternate" type="application/rss+xml" title="Blog - Ak5w" />
+<link rel="canonical" href="https://ak5w.github.io/post/2024/03/23/02-slice/" />
+
 
 
 
@@ -64,14 +66,19 @@
 
 
 
-<meta property="og:title" content="golang" />
-<meta property="og:description" content="Ak5w’s blog." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ak5w.github.io/categories/golang/" />
-<meta itemprop="name" content="golang">
-<meta itemprop="description" content="Ak5w’s blog."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="golang"/>
-<meta name="twitter:description" content="Ak5w’s blog."/>
+<meta property="og:title" content="02 Slice" />
+<meta property="og:description" content="setup golang env" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ak5w.github.io/post/2024/03/23/02-slice/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-03-23T11:48:47+08:00" />
+<meta property="article:modified_time" content="2024-03-23T11:48:47+08:00" />
+<meta itemprop="name" content="02 Slice">
+<meta itemprop="description" content="setup golang env"><meta itemprop="datePublished" content="2024-03-23T11:48:47+08:00" />
+<meta itemprop="dateModified" content="2024-03-23T11:48:47+08:00" />
+<meta itemprop="wordCount" content="0">
+<meta itemprop="keywords" content="go,golang,development," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="02 Slice"/>
+<meta name="twitter:description" content="setup golang env"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -289,67 +296,116 @@
 
     <div id="mobile-panel">
       <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">02 Slice</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          ak5w
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2024-03-23">
+      2024-03-23
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://ak5w.github.io/categories/golang/"> golang </a>
+          <a href="https://ak5w.github.io/categories/development/"> Development </a>
+          <a href="https://ak5w.github.io/categories/index/"> index </a>
+          <a href="https://ak5w.github.io/categories/data-structure/"> data structure </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          
+        </div>
+
+        
         
 
-<section id="archive" class="archive">
-  
-    
-      <div class="archive-title category">
-        <h2 class="archive-name">分类： golang</h2>
-      </div>
-    
-  
 
-  
-    <div class="archive-post">
-      <time datetime="2024-03-23" class="archive-post-time">
-        2024-03-23
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2024/03/23/02-slice/" class="archive-post-link">
-          02 Slice
-        </a>
-      </span>
+
+        
+        
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="https://ak5w.github.io/tags/go/">go</a>
+                <a href="https://ak5w.github.io/tags/golang/">golang</a>
+                <a href="https://ak5w.github.io/tags/development/">development</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+            
+              <a class="next" href="/post/2024/01/05/01-docker-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
+                <span class="next-text nav-default">01 - Docker 常用操作</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+
     </div>
-  
-    <div class="archive-post">
-      <time datetime="2024-01-02" class="archive-post-time">
-        2024-01-02
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2024/01/02/01-golang-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="archive-post-link">
-          01 Golang 开发环境准备
-        </a>
-      </span>
-    </div>
-  
-</section>
+
+    
+    
 
 
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-
-
-
-
+  </div>
 
       </main>
 
