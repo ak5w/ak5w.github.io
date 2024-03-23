@@ -6,7 +6,7 @@
     <description>Recent content on Blog - Ak5w</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 05 Jan 2024 16:37:31 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jan 2024 16:47:31 +0800</lastBuildDate>
     
         <atom:link href="https://ak5w.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -22,6 +22,71 @@
 &lt;li&gt;程序员&lt;/li&gt;
 &lt;li&gt;喜欢跑步，轻音乐&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>01 - Docker 常用操作</title>
+      <link>https://ak5w.github.io/post/2024/01/05/01-docker-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Fri, 05 Jan 2024 16:47:31 +0800</pubDate>
+      
+      <guid>https://ak5w.github.io/post/2024/01/05/01-docker-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
+      
+        <description>&lt;blockquote&gt;
+&lt;p&gt;本篇为日常 docker的一些使用笔记，是在 docker 环境准备好后进行。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装部分请参考 &lt;a href=&#34;https://ak5w.github.io/post/2024/01/05/00-docker-%E5%AE%89%E8%A3%85/&#34;&gt;00-docker-安装&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1-镜像操作&#34;&gt;1. 镜像操作&lt;/h2&gt;
+&lt;p&gt;镜像是运行容器的前提，官方的Docker Hub网站已经提供了数十万个镜像供大家开放下载。可以使用docker pull命令直接从Docker Hub镜像源来下载镜像。&lt;/p&gt;
+&lt;h3 id=&#34;11-获取镜像&#34;&gt;1.1 获取镜像&lt;/h3&gt;
+&lt;p&gt;获取镜像命令的格式为docker pull NAME[：TAG]。其中，NAME是镜像仓库的名称（用来区分镜像），TAG是镜像的标签（往往用来表示版本信息）。通常情况下，描述一个镜像需要包括“名称+标签”信息。&lt;/p&gt;
+&lt;h3 id=&#34;12-查看镜像信息&#34;&gt;1.2 查看镜像信息&lt;/h3&gt;
+&lt;h3 id=&#34;13-搜寻镜像&#34;&gt;1.3 搜寻镜像&lt;/h3&gt;
+&lt;p&gt;使用docker search命令可以搜索远端仓库中共享的镜像，默认搜索官方仓库中的镜像。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;❯ sudo docker search debian
+NAME                                  DESCRIPTION                                      STARS     OFFICIAL   AUTOMATED
+ubuntu                                Ubuntu is a Debian-based Linux operating sys…   16739     [OK]       
+debian                                Debian is a Linux distribution that&amp;#39;s compos…   4897      [OK]       
+neurodebian                           NeuroDebian provides neuroscience research s…   105       [OK]       
+bitnami/debian-base-buildpack         Debian base compilation image                    2                    [OK]
+kasmweb/debian-bullseye-desktop       Debian Bullseye desktop for Kasm Workspaces      6                    
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以看到返回了很多包含关键字的镜像，其中包括镜像名字、描述、星级（表示该镜像的受欢迎程度）、是否官方创建、是否自动创建等。
+默认的输出结果将按照星级评价进行排序。&lt;/p&gt;
+&lt;h3 id=&#34;14-删除镜像&#34;&gt;1.4 删除镜像&lt;/h3&gt;
+&lt;h3 id=&#34;15-创建镜像&#34;&gt;1.5 创建镜像&lt;/h3&gt;
+&lt;h3 id=&#34;16-存储和载入镜像&#34;&gt;1.6 存储和载入镜像&lt;/h3&gt;
+&lt;h3 id=&#34;17-上传镜像&#34;&gt;1.7 上传镜像&lt;/h3&gt;
+&lt;p&gt;可以使用docker push命令上传镜像到仓库，默认上传到Docker Hub官方仓库（需要登录）&lt;/p&gt;
+&lt;h2 id=&#34;2-容器操作&#34;&gt;2. 容器操作&lt;/h2&gt;
+&lt;h3 id=&#34;删除容器&#34;&gt;删除容器&lt;/h3&gt;
+&lt;p&gt;可以使用docker rm命令来删除处于终止或退出状态的容器.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;❯ sudo docker ps -a
+CONTAINER ID   IMAGE       COMMAND                   CREATED       STATUS                   PORTS                                                  NAMES
+92d204af69d3   mysql:5.7   &amp;#34;docker-entrypoint.s…&amp;#34;   6 hours ago   Exited (1) 6 hours ago                                                          brave_williamson
+b0904d2cb1fa   mysql:5.7   &amp;#34;docker-entrypoint.s…&amp;#34;   7 days ago    Up 9 minutes             0.0.0.0:3306-&amp;gt;3306/tcp, :::3306-&amp;gt;3306/tcp, 33060/tcp   mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;开始删除&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;❯ sudo docker rm 92d
+92d
+❯ sudo docker ps -a
+CONTAINER ID   IMAGE       COMMAND                   CREATED      STATUS          PORTS                                                  NAMES
+b0904d2cb1fa   mysql:5.7   &amp;#34;docker-entrypoint.s…&amp;#34;   7 days ago   Up 14 minutes   0.0.0.0:3306-&amp;gt;3306/tcp, :::3306-&amp;gt;3306/tcp, 33060/tcp   mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;删除运行中的容器&#34;&gt;删除运行中的容器&lt;/h4&gt;
+&lt;p&gt;默认情况下，docker rm命令只能删除处于终止或退出状态的容器，并不能删除还处于运行状态的容器。
+如果要直接删除一个运行中的容器，可以添加-f参数。Docker会先发送SIGKILL信号给容器，终止其中的应用，之后强行删除，如下所示：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;❯ sudo docker ps -a
+CONTAINER ID   IMAGE       COMMAND                   CREATED      STATUS          PORTS                                                  NAMES
+b0904d2cb1fa   mysql:5.7   &amp;#34;docker-entrypoint.s…&amp;#34;   7 days ago   Up 15 minutes   0.0.0.0:3306-&amp;gt;3306/tcp, :::3306-&amp;gt;3306/tcp, 33060/tcp   mysql
+❯ sudo docker rm b09
+Error response from daemon: You cannot remove a running container b0904d2cb1fa0c963767f9d466d93d8bbb089ad6fb6775a7ca02134d4a63440c. Stop the container before attempting removal or force remove
+❯ sudo docker rm -f b09
+b09
+❯ sudo docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;3-访问-docker-仓库&#34;&gt;3. 访问 Docker 仓库&lt;/h2&gt;
+&lt;h2 id=&#34;4-docker-数据管理&#34;&gt;4. Docker 数据管理&lt;/h2&gt;
+&lt;h2 id=&#34;5-端口映射与容器互联&#34;&gt;5. 端口映射与容器互联&lt;/h2&gt;
+&lt;h2 id=&#34;6-使用-dockerfile-创建镜像&#34;&gt;6. 使用 dockerfile 创建镜像&lt;/h2&gt;
 </description>
       
     </item>
