@@ -7,7 +7,9 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>development · Blog - Ak5w</title>
+    <title>
+          01 Api Design Draft - Blog - Ak5w
+        </title>
     
 
 <meta name="renderer" content="webkit" />
@@ -26,9 +28,9 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="ak5w" />
-  <meta name="description" content="Ak5w’s blog." />
-  <meta name="keywords" content="ak5w, blog" />
+<meta name="author" content="ak5w" /><meta name="description" content="api platform design" />
+<meta name="keywords" content="design, api" />
+
 
 
 
@@ -38,8 +40,8 @@
 <meta name="generator" content="Hugo 0.109.0" />
 
 
-<link rel="canonical" href="https://ak5w.github.io/tags/development/" />
-<link href="/tags/development/index.xml" rel="alternate" type="application/rss+xml" title="Blog - Ak5w" />
+<link rel="canonical" href="https://ak5w.github.io/post/2024/03/28/01-api-design-draft/" />
+
 
 
 
@@ -64,14 +66,19 @@
 
 
 
-<meta property="og:title" content="development" />
-<meta property="og:description" content="Ak5w’s blog." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ak5w.github.io/tags/development/" />
-<meta itemprop="name" content="development">
-<meta itemprop="description" content="Ak5w’s blog."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="development"/>
-<meta name="twitter:description" content="Ak5w’s blog."/>
+<meta property="og:title" content="01 Api Design Draft" />
+<meta property="og:description" content="api platform design" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ak5w.github.io/post/2024/03/28/01-api-design-draft/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-03-28T08:13:27+08:00" />
+<meta property="article:modified_time" content="2024-03-28T08:13:27+08:00" />
+<meta itemprop="name" content="01 Api Design Draft">
+<meta itemprop="description" content="api platform design"><meta itemprop="datePublished" content="2024-03-28T08:13:27+08:00" />
+<meta itemprop="dateModified" content="2024-03-28T08:13:27+08:00" />
+<meta itemprop="wordCount" content="480">
+<meta itemprop="keywords" content="design,api,development," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="01 Api Design Draft"/>
+<meta name="twitter:description" content="api platform design"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -289,89 +296,213 @@
 
     <div id="mobile-panel">
       <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">01 Api Design Draft</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          ak5w
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2024-03-28">
+      2024-03-28
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://ak5w.github.io/categories/design/"> design </a>
+          <a href="https://ak5w.github.io/categories/development/"> Development </a>
+          <a href="https://ak5w.github.io/categories/index/"> index </a>
+          <a href="https://ak5w.github.io/categories/api/"> api </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <h2 id="用户服务中心-01">用户服务中心 0.1</h2>
+<h3 id="用户认证">用户认证</h3>
+<ul>
+<li>用户名+密码 生成 jwt token 方式</li>
+<li>小程序的认证</li>
+<li>第三方平台用户认证 [ todo ]</li>
+</ul>
+<h3 id="用户授权">用户授权</h3>
+<ul>
+<li>基于 casbin 的 rbac 模型 对所有API 接口进行授权管理。</li>
+<li>用户以部门形式被组织着，组织内又可以分配角色，用户也可以直接被以角色进行组织，角色内又才包含了对资源的控制，包括对api 和 前端按钮的访问。
+<ul>
+<li>jwt 中要包含 user id 和 role id array，从而可以进行授权拦截判断。另外，对外暴露的id 应具有分布式唯一性。此处应使用雪花算法生成。</li>
+</ul>
+</li>
+<li>待定</li>
+</ul>
+<h3 id="多租户管理">多租户管理</h3>
+<ul>
+<li>租户实际上意味着是一个在业务上隔离的应用，应该具备可扩展性，能够低成本脱离多租户，变为单租户平台。</li>
+</ul>
+<h3 id="系统管理">系统管理</h3>
+<h1 id="go-zero-相关">go-zero 相关</h1>
+<h2 id="go-zero-模板定制">go-zero 模板定制</h2>
+<p>参考：</p>
+<ul>
+<li><a href="https://go-zero.dev/docs/tutorials/customization/template">go-zero 模板定制化</a></li>
+<li><a href="https://learnku.com/articles/64106">go-zero统一Response的返回值(RPC端错误没有解析到)</a>、</li>
+</ul>
+<h2 id="错误吗统一设计">错误吗统一设计</h2>
+<h2 id="通用api-req--resp-结构设计">通用api req / resp 结构设计</h2>
+<h2 id="项目目录结构规划">项目目录结构规划</h2>
+<p>pro
+apps
+desc
+all.api
+base.api
+role
+permission
+user
+&hellip;
+pkg
+docs
+scripts</p>
+<h2 id="数据库orm工具选型">数据库orm工具选型</h2>
+<h3 id="gorm">gorm</h3>
+<h3 id="xorm">xorm</h3>
+<h3 id="ent">ent</h3>
+<h2 id="小程序登录等-poc">小程序登录等 POC</h2>
+<p>做poc为明确数据库表设计等。</p>
+<h2 id="rpc-设计">rpc 设计</h2>
+<h1 id="数据库设计相关">数据库设计相关</h1>
+<h2 id="主键id">主键ID</h2>
+<p>采用改进版的雪花算法进行生成全局分布式增长的唯一 数字ID，一方面具备索引友好性，另外具备安全性
+但目前又看到薄雾算法具有更好的可用性及性能，还在选型中。</p>
+<h3 id="雪花算法">雪花算法</h3>
+<h3 id="薄雾算法">薄雾算法</h3>
+        </div>
+
+        
         
 
-<section id="archive" class="archive">
-  
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="https://ak5w.github.io/tags/design/">design</a>
+                <a href="https://ak5w.github.io/tags/api/">api</a>
+                <a href="https://ak5w.github.io/tags/development/">development</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+            
+              <a class="next" href="/post/2024/03/28/01-api-draft/">
+                <span class="next-text nav-default">01 Api Draft</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+
+    </div>
+
     
-      <div class="archive-title tag">
-        <h2 class="archive-name">标签： development</h2>
-      </div>
-    
-  
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#用户服务中心-01">用户服务中心 0.1</a>
+      <ul>
+        <li><a href="#用户认证">用户认证</a></li>
+        <li><a href="#用户授权">用户授权</a></li>
+        <li><a href="#多租户管理">多租户管理</a></li>
+        <li><a href="#系统管理">系统管理</a></li>
+      </ul>
+    </li>
+  </ul>
 
-  
-    <div class="archive-post">
-      <time datetime="2024-03-28" class="archive-post-time">
-        2024-03-28
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2024/03/28/01-api-draft/" class="archive-post-link">
-          01 Api Draft
-        </a>
-      </span>
+  <ul>
+    <li><a href="#go-zero-模板定制">go-zero 模板定制</a></li>
+    <li><a href="#错误吗统一设计">错误吗统一设计</a></li>
+    <li><a href="#通用api-req--resp-结构设计">通用api req / resp 结构设计</a></li>
+    <li><a href="#项目目录结构规划">项目目录结构规划</a></li>
+    <li><a href="#数据库orm工具选型">数据库orm工具选型</a>
+      <ul>
+        <li><a href="#gorm">gorm</a></li>
+        <li><a href="#xorm">xorm</a></li>
+        <li><a href="#ent">ent</a></li>
+      </ul>
+    </li>
+    <li><a href="#小程序登录等-poc">小程序登录等 POC</a></li>
+    <li><a href="#rpc-设计">rpc 设计</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#主键id">主键ID</a>
+      <ul>
+        <li><a href="#雪花算法">雪花算法</a></li>
+        <li><a href="#薄雾算法">薄雾算法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
-  
-    <div class="archive-post">
-      <time datetime="2024-03-28" class="archive-post-time">
-        2024-03-28
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2024/03/28/01-api-design-draft/" class="archive-post-link">
-          01 Api Design Draft
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2024-03-23" class="archive-post-time">
-        2024-03-23
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2024/03/23/02-slice/" class="archive-post-link">
-          02 Slice
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2024-01-02" class="archive-post-time">
-        2024-01-02
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2024/01/02/01-golang-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="archive-post-link">
-          01 Golang 开发环境准备
-        </a>
-      </span>
-    </div>
-  
-</section>
+  </nav>
 
 
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-
-
-
-
+  </div>
 
       </main>
 

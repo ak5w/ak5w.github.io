@@ -6,7 +6,7 @@
     <description>Recent content on Blog - Ak5w</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 23 Mar 2024 11:48:47 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Mar 2024 08:13:27 +0800</lastBuildDate>
     
         <atom:link href="https://ak5w.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -23,6 +23,140 @@
 &lt;li&gt;喜欢跑步，轻音乐&lt;/li&gt;
 &lt;/ul&gt;
 </description>
+      
+    </item>
+    
+    <item>
+      <title>01 Api Design Draft</title>
+      <link>https://ak5w.github.io/post/2024/03/28/01-api-design-draft/</link>
+      <pubDate>Thu, 28 Mar 2024 08:13:27 +0800</pubDate>
+      
+      <guid>https://ak5w.github.io/post/2024/03/28/01-api-design-draft/</guid>
+      
+        <description>&lt;h2 id=&#34;用户服务中心-01&#34;&gt;用户服务中心 0.1&lt;/h2&gt;
+&lt;h3 id=&#34;用户认证&#34;&gt;用户认证&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用户名+密码 生成 jwt token 方式&lt;/li&gt;
+&lt;li&gt;小程序的认证&lt;/li&gt;
+&lt;li&gt;第三方平台用户认证 [ todo ]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;用户授权&#34;&gt;用户授权&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;基于 casbin 的 rbac 模型 对所有API 接口进行授权管理。&lt;/li&gt;
+&lt;li&gt;用户以部门形式被组织着，组织内又可以分配角色，用户也可以直接被以角色进行组织，角色内又才包含了对资源的控制，包括对api 和 前端按钮的访问。
+&lt;ul&gt;
+&lt;li&gt;jwt 中要包含 user id 和 role id array，从而可以进行授权拦截判断。另外，对外暴露的id 应具有分布式唯一性。此处应使用雪花算法生成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;待定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;多租户管理&#34;&gt;多租户管理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;租户实际上意味着是一个在业务上隔离的应用，应该具备可扩展性，能够低成本脱离多租户，变为单租户平台。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;系统管理&#34;&gt;系统管理&lt;/h3&gt;
+&lt;h1 id=&#34;go-zero-相关&#34;&gt;go-zero 相关&lt;/h1&gt;
+&lt;h2 id=&#34;go-zero-模板定制&#34;&gt;go-zero 模板定制&lt;/h2&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://go-zero.dev/docs/tutorials/customization/template&#34;&gt;go-zero 模板定制化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learnku.com/articles/64106&#34;&gt;go-zero统一Response的返回值(RPC端错误没有解析到)&lt;/a&gt;、&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;错误吗统一设计&#34;&gt;错误吗统一设计&lt;/h2&gt;
+&lt;h2 id=&#34;通用api-req--resp-结构设计&#34;&gt;通用api req / resp 结构设计&lt;/h2&gt;
+&lt;h2 id=&#34;项目目录结构规划&#34;&gt;项目目录结构规划&lt;/h2&gt;
+&lt;p&gt;pro
+apps
+desc
+all.api
+base.api
+role
+permission
+user
+&amp;hellip;
+pkg
+docs
+scripts&lt;/p&gt;
+&lt;h2 id=&#34;数据库orm工具选型&#34;&gt;数据库orm工具选型&lt;/h2&gt;
+&lt;h3 id=&#34;gorm&#34;&gt;gorm&lt;/h3&gt;
+&lt;h3 id=&#34;xorm&#34;&gt;xorm&lt;/h3&gt;
+&lt;h3 id=&#34;ent&#34;&gt;ent&lt;/h3&gt;
+&lt;h2 id=&#34;小程序登录等-poc&#34;&gt;小程序登录等 POC&lt;/h2&gt;
+&lt;p&gt;做poc为明确数据库表设计等。&lt;/p&gt;
+&lt;h2 id=&#34;rpc-设计&#34;&gt;rpc 设计&lt;/h2&gt;
+&lt;h1 id=&#34;数据库设计相关&#34;&gt;数据库设计相关&lt;/h1&gt;
+&lt;h2 id=&#34;主键id&#34;&gt;主键ID&lt;/h2&gt;
+&lt;p&gt;采用改进版的雪花算法进行生成全局分布式增长的唯一 数字ID，一方面具备索引友好性，另外具备安全性
+但目前又看到薄雾算法具有更好的可用性及性能，还在选型中。&lt;/p&gt;
+&lt;h3 id=&#34;雪花算法&#34;&gt;雪花算法&lt;/h3&gt;
+&lt;h3 id=&#34;薄雾算法&#34;&gt;薄雾算法&lt;/h3&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>01 Api Draft</title>
+      <link>https://ak5w.github.io/post/2024/03/28/01-api-draft/</link>
+      <pubDate>Thu, 28 Mar 2024 08:13:27 +0800</pubDate>
+      
+      <guid>https://ak5w.github.io/post/2024/03/28/01-api-draft/</guid>
+      
+        <description>&lt;h2 id=&#34;用户服务中心-01&#34;&gt;用户服务中心 0.1&lt;/h2&gt;
+&lt;h3 id=&#34;用户认证&#34;&gt;用户认证&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用户名+密码 生成 jwt token 方式&lt;/li&gt;
+&lt;li&gt;小程序的认证&lt;/li&gt;
+&lt;li&gt;第三方平台用户认证 [ todo ]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;用户授权&#34;&gt;用户授权&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;基于 casbin 的 rbac 模型 对所有API 接口进行授权管理。&lt;/li&gt;
+&lt;li&gt;用户以部门形式被组织着，组织内又可以分配角色，用户也可以直接被以角色进行组织，角色内又才包含了对资源的控制，包括对api 和 前端按钮的访问。
+&lt;ul&gt;
+&lt;li&gt;jwt 中要包含 user id 和 role id array，从而可以进行授权拦截判断。另外，对外暴露的id 应具有分布式唯一性。此处应使用雪花算法生成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;待定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;多租户管理&#34;&gt;多租户管理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;租户实际上意味着是一个在业务上隔离的应用，应该具备可扩展性，能够低成本脱离多租户，变为单租户平台。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;系统管理&#34;&gt;系统管理&lt;/h3&gt;
+&lt;h1 id=&#34;go-zero-相关&#34;&gt;go-zero 相关&lt;/h1&gt;
+&lt;h2 id=&#34;go-zero-模板定制&#34;&gt;go-zero 模板定制&lt;/h2&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://go-zero.dev/docs/tutorials/customization/template&#34;&gt;go-zero 模板定制化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learnku.com/articles/64106&#34;&gt;go-zero统一Response的返回值(RPC端错误没有解析到)&lt;/a&gt;、&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;错误吗统一设计&#34;&gt;错误吗统一设计&lt;/h2&gt;
+&lt;h2 id=&#34;通用api-req--resp-结构设计&#34;&gt;通用api req / resp 结构设计&lt;/h2&gt;
+&lt;h2 id=&#34;项目目录结构规划&#34;&gt;项目目录结构规划&lt;/h2&gt;
+&lt;p&gt;pro
+apps
+desc
+all.api
+base.api
+role
+permission
+user
+&amp;hellip;
+pkg
+docs
+scripts&lt;/p&gt;
+&lt;h2 id=&#34;数据库orm工具选型&#34;&gt;数据库orm工具选型&lt;/h2&gt;
+&lt;h3 id=&#34;gorm&#34;&gt;gorm&lt;/h3&gt;
+&lt;h3 id=&#34;xorm&#34;&gt;xorm&lt;/h3&gt;
+&lt;h3 id=&#34;ent&#34;&gt;ent&lt;/h3&gt;
+&lt;h2 id=&#34;小程序登录等-poc&#34;&gt;小程序登录等 POC&lt;/h2&gt;
+&lt;p&gt;做poc为明确数据库表设计等。&lt;/p&gt;
+&lt;h2 id=&#34;rpc-设计&#34;&gt;rpc 设计&lt;/h2&gt;
+&lt;h1 id=&#34;数据库设计相关&#34;&gt;数据库设计相关&lt;/h1&gt;
+&lt;h2 id=&#34;主键id&#34;&gt;主键ID&lt;/h2&gt;
+&lt;p&gt;采用改进版的雪花算法进行生成全局分布式增长的唯一 数字ID，一方面具备索引友好性，另外具备安全性
+但目前又看到薄雾算法具有更好的可用性及性能，还在选型中。&lt;/p&gt;
+&lt;h3 id=&#34;雪花算法&#34;&gt;雪花算法&lt;/h3&gt;
+&lt;h3 id=&#34;薄雾算法&#34;&gt;薄雾算法&lt;/h3&gt;</description>
       
     </item>
     
