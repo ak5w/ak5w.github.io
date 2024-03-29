@@ -75,7 +75,7 @@
 <meta itemprop="name" content="01 Api Draft">
 <meta itemprop="description" content="api platform design"><meta itemprop="datePublished" content="2024-03-28T08:13:27+08:00" />
 <meta itemprop="dateModified" content="2024-03-28T08:13:27+08:00" />
-<meta itemprop="wordCount" content="480">
+<meta itemprop="wordCount" content="1958">
 <meta itemprop="keywords" content="design,api,development," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="01 Api Draft"/>
 <meta name="twitter:description" content="api platform design"/>
@@ -378,8 +378,226 @@
 <li><a href="https://go-zero.dev/docs/tutorials/customization/template">go-zero 模板定制化</a></li>
 <li><a href="https://learnku.com/articles/64106">go-zero统一Response的返回值(RPC端错误没有解析到)</a>、</li>
 </ul>
-<h2 id="错误吗统一设计">错误吗统一设计</h2>
+<h2 id="错误码统一设计">错误码统一设计</h2>
 <h2 id="通用api-req--resp-结构设计">通用api req / resp 结构设计</h2>
+<p><a href="https://www.cnblogs.com/jaxu/p/7908111.html#a_8_2">RESTful服务最佳实践</a></p>
+<h3 id="resp-结构">resp 结构</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Sub-Class</th>
+<th>Optional | Mandatory</th>
+<th>Desc</th>
+<th>Remark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code | unsigned integer</td>
+<td>N/A</td>
+<td>M</td>
+<td>response code, 0 - means normal, the others means error case on bussiness.</td>
+<td></td>
+</tr>
+<tr>
+<td>msg | string | not null</td>
+<td>N/A</td>
+<td>M</td>
+<td>the desc for code.</td>
+<td></td>
+</tr>
+<tr>
+<td>data | {}interface</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>O</td>
+<td>the data body.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="项目目录结构规划">项目目录结构规划</h2>
 <p>pro
 apps
@@ -404,8 +622,70 @@ scripts</p>
 <h2 id="主键id">主键ID</h2>
 <p>采用改进版的雪花算法进行生成全局分布式增长的唯一 数字ID，一方面具备索引友好性，另外具备安全性
 但目前又看到薄雾算法具有更好的可用性及性能，还在选型中。</p>
+<h2 id="数据表扩展性设计">数据表扩展性设计</h2>
+<p>目的
+扩展性设计的目的其实就是为将来应对需求变更进行的一系列准备。在表里面新增预留的扩展字段，还有就是扩新增加直接能够存储比较长的Jason字段的这种表字段</p>
+<p>还有就是将数据库表里面不太常用到的一些数据，或者说是数据量比较少的数据可以直接存在一张字典表里面，这样能够减少一些设计开发包括测试的流程，当然这个都是以多租户为主的一个设计了。</p>
+<h3 id="常用表字段">常用表字段</h3>
+<ul>
+<li>数据库自增id</li>
+<li>数据库表记录id uuid 雪花算法id 薄雾算法id</li>
+<li>remark / comment 字段，看根据表情形增删</li>
+<li>app_id 用于区分所属app.</li>
+<li>owner_id 用于标记信息所属用户id</li>
+<li>created_time</li>
+<li>updated_time</li>
+<li>updated_by 用于标记最近更新信息用户id.  此外，因为此处只存最后一个更新者，所以看是否需要存储该数据的变更历史记录，需要另外对更新操作进行存储处理。 包括后面的删除操作也是一样。扩充到整个系统就是对系统内的操作事件进行记录，汇总的处理。</li>
+<li>deleted_time</li>
+<li>deleted_by
+<ul>
+<li>这三个增删改的人员，只在这存个id合适吗？需不需要适当增加用户名字段，以此增加冗余字段来换取查询性能呢？用户界面上肯定不是要看到用户id的</li>
+</ul>
+</li>
+<li>status  用于标记当前数据状态。此处看是否需要用于对数据进行冷却处理？就是一段时间内不可用，到期后进行自动更新为可用。</li>
+<li>type 字段 用于对数据功能属性用途做区分。</li>
+<li>sort 排序字段</li>
+<li></li>
+</ul>
+<h3 id="字典表设计">字典表设计</h3>
+<p>字典表主要是为了存储少量，低更新频率的数据
+，就是为了减少整个系统当中的一些重复性的找工作。</p>
+<p>另外需要考虑字典表是不是具备树形结构存储呢？一定要的 。</p>
+<p>之前设计就是要保留几个预留的字段，然后对应的还要有可扩展的json字段。</p>
+<p>字典表的缓存思考
+基于字典表数据的低更新性，应该稍微持久一点存储在缓存内进行使用。
+当然也要提供即可更新缓存操作。
+另外，也需要考虑，缓存的大小。</p>
+<h4 id="多租户信息-最大200条">多租户信息 [最大200条]</h4>
+<p>不意味着就是一个应用单独的一个应用了，那这个信息能不能重置到200呢
+一些未来需要新增的扩展字段，可直接使用到扩展json字段了。
+后续其他表的预估量都依据这个多租户的200条最大上限来评估。</p>
+<p>需要存储对应的小程序密钥等其他额外信息。</p>
+<h4 id="用户组信息100条--总-2w">用户组信息[100条]  总 2w</h4>
+<p>组类型？实体组或虚拟组？
+实际业务中，可能会存在跨部门协同成立新的项目组，这种并非依据实体组织的用户组。</p>
+<h4 id="角色信息-50条-总-1w">角色信息 [50条] 总 1w</h4>
+<h4 id="管理后台菜单资源信息100条">管理后台菜单资源信息[100条]</h4>
+<h4 id="应用菜单资源信息100条">应用菜单资源信息[100条]</h4>
+<p>系统api信息[200条]</p>
+<h3 id="表数据量预估">表数据量预估</h3>
+<p>在设计表数据库的时候对整个这张表未来可能的数据量的一个评估了，每张表设计的时候都要有这样的一个预估记录了，包括数据量评估所依据的因素，这个都要列出来，因为这个会与实际的情况进行一个核实比对，看自己预判在什么地方有问题，然后再一个就是因为对这个数据量的预估呢，会影响这个表的设计了，就是这样子。</p>
 <h3 id="雪花算法">雪花算法</h3>
 <h3 id="薄雾算法">薄雾算法</h3>
+<h1 id="缓存相关">缓存相关</h1>
+<h2 id="缓存操作军规">缓存操作军规？</h2>
+<ul>
+<li>所以缓存写入都要有过期期限。</li>
+<li>缓存刷新操作要求：先更新数据库，再删除缓存记录？</li>
+<li></li>
+</ul>
+<p>数据一致性操作要求</p>
+<p>需要在后台管理侧，提供手动（也可有自动job进行）缓存更新操作。自动job 在于特定应用进行定期更新操作。</p>
+<p>热点数据评估？</p>
+<h1 id="测试相关">测试相关</h1>
+<h2 id="性能压测">性能压测</h2>
+<p>主要可通过云主机作为外网入口，云主机上本身就有rpc service, 然后通过内网穿透，在本地新增rpc 服务，使得云主机进入的流量能够分发到本地rpc 服务上。以此来观察整个并发量的情况。</p>
+<p>（todo）另外对于增加rpc的操作能不能做到无缝无感新增或者去除，就是说是可以直接自动的注册到服务发现服务中心，然后就可以完成流量的分发，并且能够有可视化的观测工具，能够查看到整个流量的情况，就是在某一端rpc上面运行的流量情况包括资源。</p>
         </div>
 
         
@@ -488,8 +768,12 @@ scripts</p>
 
   <ul>
     <li><a href="#go-zero-模板定制">go-zero 模板定制</a></li>
-    <li><a href="#错误吗统一设计">错误吗统一设计</a></li>
-    <li><a href="#通用api-req--resp-结构设计">通用api req / resp 结构设计</a></li>
+    <li><a href="#错误码统一设计">错误码统一设计</a></li>
+    <li><a href="#通用api-req--resp-结构设计">通用api req / resp 结构设计</a>
+      <ul>
+        <li><a href="#resp-结构">resp 结构</a></li>
+      </ul>
+    </li>
     <li><a href="#项目目录结构规划">项目目录结构规划</a></li>
     <li><a href="#数据库orm工具选型">数据库orm工具选型</a>
       <ul>
@@ -503,12 +787,24 @@ scripts</p>
   </ul>
 
   <ul>
-    <li><a href="#主键id">主键ID</a>
+    <li><a href="#主键id">主键ID</a></li>
+    <li><a href="#数据表扩展性设计">数据表扩展性设计</a>
       <ul>
+        <li><a href="#常用表字段">常用表字段</a></li>
+        <li><a href="#字典表设计">字典表设计</a></li>
+        <li><a href="#表数据量预估">表数据量预估</a></li>
         <li><a href="#雪花算法">雪花算法</a></li>
         <li><a href="#薄雾算法">薄雾算法</a></li>
       </ul>
     </li>
+  </ul>
+
+  <ul>
+    <li><a href="#缓存操作军规">缓存操作军规？</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#性能压测">性能压测</a></li>
   </ul>
 </nav>
     </div>
