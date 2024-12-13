@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="800px" preserveAspectRatio="none" style="width:435px;height:800px;background:#FFFFFF;" version="1.1" viewBox="0 0 435 800" width="435px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="29.0679" id="_title" style="stroke:none;stroke-width:1.0;" width="121" x="155.5" y="15"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="111" x="160.5" y="34.9659">folder summary</text><rect fill="#445069" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="90" x="10" y="399.7084"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="20" y="424.6744">tech-book</text><rect fill="#FFE5E5" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="70" x="150" y="60.0679"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="160" y="85.0339">design</text><path d="M100,419.2424 L110,419.2424 C125,419.2424 125,79.6019 140,79.6019 L150,79.6019 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#90EE90" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="48" x="150" y="178.2038"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="24" x="160" y="203.1697">dev</text><rect fill="#F7E987" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="56" x="248" y="119.1358"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="258" y="144.1018">base</text><rect fill="#FFE5E5" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="69" x="354" y="119.1358"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="45" x="364" y="144.1018">tiny-os</text><path d="M304,138.6698 L314,138.6698 C329,138.6698 329,138.6698 344,138.6698 L354,138.6698 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><path d="M198,197.7377 L208,197.7377 C223,197.7377 223,138.6698 238,138.6698 L248,138.6698 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#F7E987" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="54" x="248" y="207.7377"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30" x="258" y="232.7036">lang</text><rect fill="#FFBBCC" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="71" x="352" y="178.2038"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47" x="362" y="203.1697">golang</text><path d="M302,227.2717 L312,227.2717 C327,227.2717 327,197.7377 342,197.7377 L352,197.7377 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#FFBBCC" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="51" x="352" y="237.2717"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="362" y="262.2376">rust</text><path d="M302,227.2717 L312,227.2717 C327,227.2717 327,256.8056 342,256.8056 L352,256.8056 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><path d="M198,197.7377 L208,197.7377 C223,197.7377 223,227.2717 238,227.2717 L248,227.2717 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><path d="M100,419.2424 L110,419.2424 C125,419.2424 125,197.7377 140,197.7377 L150,197.7377 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#F1F1F1" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="107" x="150" y="355.4075"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="160" y="380.3734">middlewares</text><rect fill="#ADD8E6" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="62" x="307" y="296.3396"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="317" y="321.3055">nginx</text><path d="M257,374.9415 L267,374.9415 C282,374.9415 282,315.8735 297,315.8735 L307,315.8735 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#ADD8E6" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="58" x="307" y="355.4075"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="317" y="380.3734">redis</text><path d="M257,374.9415 L267,374.9415 C282,374.9415 282,374.9415 297,374.9415 L307,374.9415 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#ADD8E6" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="69" x="307" y="414.4754"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="45" x="317" y="439.4414">docker</text><path d="M257,374.9415 L267,374.9415 C282,374.9415 282,434.0094 297,434.0094 L307,434.0094 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><path d="M100,419.2424 L110,419.2424 C125,419.2424 125,374.9415 140,374.9415 L150,374.9415 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#FFBA86" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="77" x="150" y="414.4754"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53" x="160" y="439.4414">dev-ops</text><path d="M100,419.2424 L110,419.2424 C125,419.2424 125,434.0094 140,434.0094 L150,434.0094 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#79155B" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="64" x="150" y="503.0773"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="160" y="528.0432">topics</text><rect fill="#C23373" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="99" x="264" y="473.5433"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="274" y="498.5093">distrbution</text><path d="M214,522.6113 L224,522.6113 C239,522.6113 239,493.0773 254,493.0773 L264,493.0773 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#FFBA86" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="107" x="264" y="532.6113"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="274" y="557.5772">concurrency</text><path d="M214,522.6113 L224,522.6113 C239,522.6113 239,552.1452 254,552.1452 L264,552.1452 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><path d="M100,419.2424 L110,419.2424 C125,419.2424 125,522.6113 140,522.6113 L150,522.6113 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#5B9A8B" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="74" x="150" y="621.2131"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="160" y="646.1791">expand</text><rect fill="#F7E987" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="98" x="274" y="591.6792"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="284" y="616.6451">must-read</text><path d="M224,640.7471 L234,640.7471 C249,640.7471 249,611.2131 264,611.2131 L274,611.2131 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#FFBBCC" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="57" x="274" y="650.7471"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="284" y="675.713">skills</text><path d="M224,640.7471 L234,640.7471 C249,640.7471 249,670.281 264,670.281 L274,670.281 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><path d="M100,419.2424 L110,419.2424 C125,419.2424 125,640.7471 140,640.7471 L150,640.7471 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#ADD8E6" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="56" x="150" y="680.281"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="160" y="705.247">tools</text><path d="M100,419.2424 L110,419.2424 C125,419.2424 125,699.815 140,699.815 L150,699.815 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><rect fill="#F1F1F1" height="39.0679" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="47" x="150" y="739.349"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="160" y="764.3149">tmp</text><path d="M100,419.2424 L110,419.2424 C125,419.2424 125,758.8829 140,758.8829 L150,758.8829 " fill="none" style="stroke:#181818;stroke-width:1.0;"/><!--MD5=[455edcbbae87af72b48b1239ccc1a688]
+@startmindmap
+title folder summary
+
+<style>
+mindmapDiagram {
+  .green {
+    BackgroundColor lightgreen
+  }
+  .rose {
+    BackgroundColor #FFBBCC
+  }
+  .lightblue {
+    BackgroundColor lightblue
+  }
+  
+  .lightdark {
+    BackgroundColor #445069
+  }
+  .lightgreen {
+    BackgroundColor #5B9A8B
+  }
+  .yellow {
+    BackgroundColor #F7E987
+  }
+  .lightpink {
+    BackgroundColor #FFE5E5
+  }
+  .lightorange {
+    BackgroundColor #FFBA86
+  }
+  .maroon {
+    BackgroundColor #79155B
+  }
+  .purple {
+    BackgroundColor #C23373
+  }
+}
+</style>
+* tech-book <<lightdark>>
+** design <<lightpink>>
+** dev <<green>>
+*** base <<yellow>>
+**** tiny-os <<lightpink>>
+*** lang <<yellow>>
+**** golang <<rose>>
+**** rust <<rose>>
+** middlewares
+*** nginx <<lightblue>>
+*** redis <<lightblue>>
+*** docker <<lightblue>>
+** dev-ops <<lightorange>>
+** topics <<maroon>>
+*** distrbution <<purple>>
+*** concurrency <<lightorange>>
+** expand <<lightgreen>>
+*** must-read  <<yellow>>
+*** skills <<rose>>
+** tools <<lightblue>>
+** tmp
+@endmindmap
+
+PlantUML version 1.2022.7(Tue Aug 23 01:01:30 CST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
