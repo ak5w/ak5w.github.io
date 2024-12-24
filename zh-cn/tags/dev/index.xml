@@ -7,17 +7,17 @@
 >
   <channel>
     <title>Dev on ak5w&#39;s blog</title>
-    <link>http://localhost:1313/zh-cn/tags/dev/</link>
+    <link>https://ak5w.github.io/zh-cn/tags/dev/</link>
     <description>Recent content in Dev on ak5w&#39;s blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 02 Jan 2024 23:17:40 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/zh-cn/tags/dev/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ak5w.github.io/zh-cn/tags/dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>01 Golang 开发环境准备</title>
-      <link>http://localhost:1313/zh-cn/post/2024/01/01-golang-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
+      <title>01 Go 开发环境准备</title>
+      <link>https://ak5w.github.io/zh-cn/post/2024/01/01-go-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
       <pubDate>Tue, 02 Jan 2024 23:17:40 +0800</pubDate>
-      <guid>http://localhost:1313/zh-cn/post/2024/01/01-golang-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</guid>
+      <guid>https://ak5w.github.io/zh-cn/post/2024/01/01-go-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</guid>
       <description>golang 开发环境设置 有关go语言的介绍可以在 https://zh.wikipedia.org/zh-cn/Go 或官网查看。 1. golang 安装 最新版本可在 The Go Programming Language 或 Go 语言中文网 上下载 本文仅提供在Linux的安装方法，其他环</description>
       
     </item>
