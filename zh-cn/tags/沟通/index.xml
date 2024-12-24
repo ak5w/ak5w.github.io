@@ -6,27 +6,19 @@
   
 >
   <channel>
-    <title>ak5w&#39;s blog</title>
-    <link>https://ak5w.github.io/zh-cn/</link>
-    <description>Recent content on ak5w&#39;s blog</description>
+    <title>沟通 on ak5w&#39;s blog</title>
+    <link>https://ak5w.github.io/zh-cn/tags/%E6%B2%9F%E9%80%9A/</link>
+    <description>Recent content in 沟通 on ak5w&#39;s blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 02 Mar 2024 23:17:40 +0800</lastBuildDate>
-    <atom:link href="https://ak5w.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ak5w.github.io/zh-cn/tags/%E6%B2%9F%E9%80%9A/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>提问的艺术</title>
       <link>https://ak5w.github.io/zh-cn/post/2024/03/%E6%8F%90%E9%97%AE%E7%9A%84%E8%89%BA%E6%9C%AF/</link>
       <pubDate>Sat, 02 Mar 2024 23:17:40 +0800</pubDate>
       <guid>https://ak5w.github.io/zh-cn/post/2024/03/%E6%8F%90%E9%97%AE%E7%9A%84%E8%89%BA%E6%9C%AF/</guid>
       <description>本文转自 How-To-Ask-Questions-The-Smart-Way 提问的智慧 How To Ask Questions The Smart Way Copyright © 2001,2006,2014 Eric S. Raymond, Rick Moen 本指南英文版版权为 Eric S. Raymond, Rick Moen 所有。 原文网址：http://www.catb.org/~es</description>
-      
-    </item>
-    <item>
-      <title>01 Go 开发环境准备</title>
-      <link>https://ak5w.github.io/zh-cn/post/2024/01/01-go-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
-      <pubDate>Tue, 02 Jan 2024 23:17:40 +0800</pubDate>
-      <guid>https://ak5w.github.io/zh-cn/post/2024/01/01-go-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</guid>
-      <description>golang 开发环境设置 有关go语言的介绍可以在 https://zh.wikipedia.org/zh-cn/Go 或官网查看。 1. golang 安装 最新版本可在 The Go Programming Language 或 Go 语言中文网 上下载 本文仅提供在Linux的安装方法，其他环</description>
       
     </item>
   </channel>

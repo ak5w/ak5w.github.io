@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>Skills on ak5w&#39;s blog</title>
+    <link>http://localhost:1313/zh-cn/categories/skills/</link>
+    <description>Recent content in Skills on ak5w&#39;s blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 02 Mar 2024 23:17:40 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh-cn/categories/skills/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>提问的艺术</title>
+      <link>http://localhost:1313/zh-cn/post/2024/03/%E6%8F%90%E9%97%AE%E7%9A%84%E8%89%BA%E6%9C%AF/</link>
+      <pubDate>Sat, 02 Mar 2024 23:17:40 +0800</pubDate>
+      <guid>http://localhost:1313/zh-cn/post/2024/03/%E6%8F%90%E9%97%AE%E7%9A%84%E8%89%BA%E6%9C%AF/</guid>
+      <description>本文转自 How-To-Ask-Questions-The-Smart-Way 提问的智慧 How To Ask Questions The Smart Way Copyright © 2001,2006,2014 Eric S. Raymond, Rick Moen 本指南英文版版权为 Eric S. Raymond, Rick Moen 所有。 原文网址：http://www.catb.org/~es</description>
+      
+    </item>
+  </channel>
+</rss>
