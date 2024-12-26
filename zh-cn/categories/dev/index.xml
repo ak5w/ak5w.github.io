@@ -11,8 +11,16 @@
     <description>Recent content in Dev on ak5w&#39;s blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 02 Jan 2024 23:17:40 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2024 17:39:35 +0800</lastBuildDate>
     <atom:link href="https://ak5w.github.io/zh-cn/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>00 tinyOS 开发环境搭建</title>
+      <link>https://ak5w.github.io/zh-cn/post/2024/12/00-tinyos-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Thu, 26 Dec 2024 17:39:35 +0800</pubDate>
+      <guid>https://ak5w.github.io/zh-cn/post/2024/12/00-tinyos-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <description>本篇主要为开发环境搭建。 1. 安装 Bochs &amp;amp; Nasm Bochs 是一个通用的硬件模拟器，系统内核的调试运行均在这个模拟器上进行 sudo apt-get install build-essential xorg-dev bison g++ bochs-x -y sudo apt-get install nasm 要是以上安装过</description>
+      
+    </item>
     <item>
       <title>01 Go 开发环境准备</title>
       <link>https://ak5w.github.io/zh-cn/post/2024/01/01-go-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
